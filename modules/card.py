@@ -6,10 +6,10 @@ class   Card:
         self.remaining = 0
         pass
 
-    def isFull(self) -> bool:
+    def isFull(self) -> int:
         if self.remaining == 0:
-            return True
-        return False
+            return self.number
+        return 0
 
     def isEmpty(self) -> bool:
         if self.remaining == 15:

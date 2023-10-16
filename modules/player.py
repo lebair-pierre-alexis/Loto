@@ -21,8 +21,9 @@ class   Player:
 
     def checkWin(self) -> bool:
         for card in self.cards:
-            if card.isFull():
-                return True
+            winCard = card.isFull()
+            if winCard != 0:
+                return winCard
         return False
 
     def checkLoss(self) -> bool:
