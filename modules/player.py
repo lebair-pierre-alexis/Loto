@@ -1,32 +1,32 @@
-from card import Card
+from modules.card import Card
 
 class   Player:
 
     def __init__(self, name) -> None:
         self.name = name
-        self.cards: list[Card] = []
+        self.cards: dict[int, Card] = {}
         pass
 
-    def addCard(self) -> None:
-        number = int(input("Veuillez entrez le numéro du carton : "))
-        card = Card(number)
-        while card.remaining != 15:
-            num = int(input("Nombre n°", card.remaining + 1, " : "))
-            if card.asNum(num):
-                print("Ce nombre à déjà été entré sur ce carton")
-            else:
-                card.numbers[num] = 0
-                card.remaining += 1
-        self.cards.append(card)
+    # def addCard(self) -> None:
+    #     number = int(input("Veuillez entrez le numéro du carton : "))
+    #     card = Card(number)
+    #     while card.remaining != 15:
+    #         num = int(input("Nombre n°", card.remaining + 1, " : "))
+    #         if card.asNum(num):
+    #             print("Ce nombre à déjà été entré sur ce carton")
+    #         else:
+    #             card.numbers[num] = 0
+    #             card.remaining += 1
+    #     self.cards[number] = card
 
-    def checkWin(self) -> bool:
+    def hasWon(self) -> int:
         for card in self.cards:
             winCard = card.isFull()
             if winCard != 0:
                 return winCard
-        return False
+        return 0
 
-    def checkLoss(self) -> bool:
+    def hasLost(self) -> bool:
         for card in self.cards:
             if card.isEmpty() == True:
                 return False

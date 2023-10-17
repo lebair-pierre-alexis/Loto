@@ -2,7 +2,7 @@ class   Card:
 
     def __init__(self, number) -> None:
         self.number = number
-        self.numbers = {}
+        self.numbers: dict[int, bool] = {}
         self.remaining = 0
         pass
 
@@ -28,6 +28,7 @@ class   Card:
     def resetMark(self) -> None:
         for i in self.numbers.keys():
             self.numbers[i] = 0
+            self.remaining = 15
 
     def missingNumbers(self) -> list[int]:
         missing = []
