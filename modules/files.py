@@ -14,7 +14,7 @@ def loadCards(players: dict[str, Player]) -> None:
             for number in numbers:
                 players[player].cards[cardNum].numbers[int(number)] = 0
             line = file.readline()
-    file.close()
+        file.close()
 
 
 def loadPlayers() -> dict[str, Player]:
@@ -24,4 +24,7 @@ def loadPlayers() -> dict[str, Player]:
         playerName = playerName.replace(".txt", "")
         players[playerName] = Player(playerName)
     loadCards(players)
+    print("Les joueurs ont été chargés avec succès : ")
+    for player in players:
+        print(" - ", players[player].name)
     return players
